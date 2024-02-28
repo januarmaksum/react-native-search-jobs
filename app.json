@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d29c23c3-b521-4ba7-b220-31d9af818196"
+      }
+    },
+    "owner": "januarmaksum"
   }
 }
