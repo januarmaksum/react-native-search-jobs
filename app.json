@@ -25,13 +25,20 @@
       "package": "com.januarmaksum.searchjobs"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "static"
     },
     "extra": {
       "eas": {
         "projectId": "d29c23c3-b521-4ba7-b220-31d9af818196"
       }
     },
-    "owner": "januarmaksum"
+    "owner": "januarmaksum",
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "scheme": "your-app-scheme"
   }
 }
