@@ -31,7 +31,10 @@
     },
     "extra": {
       "eas": {
-        "projectId": "d29c23c3-b521-4ba7-b220-31d9af818196"
+        "projectId": "12b129be-6cd3-4b6c-bc45-b45732aa2a44"
+      },
+      "router": {
+        "origin": false
       }
     },
     "owner": "januarmaksum",
