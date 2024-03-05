@@ -24,8 +24,6 @@ const Popularjobs = () => {
   };
   const { data, isLoading, error } = useFetch("search", params);
 
-  console.log('render popular jobs');
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -46,7 +44,14 @@ const Popularjobs = () => {
             keyExtractor={(item) => item?.job_id}
             contentContainerStyle={{ columnGap: SIZES.small }}
             horizontal
-            renderItem={({ item }) => <PopularJobCard item={item} />}
+            renderItem={({ item }) => (
+              <PopularJobCard
+                item={item}
+                handleCardPress={() =>
+                  router.push(`job-details/${item.job_id}`)
+                }
+              />
+            )}
           />
         )}
       </View>

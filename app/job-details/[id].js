@@ -20,6 +20,8 @@ import {
 import { COLORS, SIZES, icons } from "../../constants";
 import useFetch from "../../hooks/useFetch";
 
+const tabs = ["About the job", "Responsibilities"];
+
 const JobDetails = () => {
   const params = useGlobalSearchParams();
   const router = useRouter();
@@ -36,6 +38,28 @@ const JobDetails = () => {
   const jobData = data.length > 0 && data[0];
 
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  const displayTabContent = () => {
+    switch (activeTab) {
+      case tabs[0]:
+        return (
+          <JobAbout
+            title={tabs[0]}
+            info={jobData.job_description ?? "No data provided"}
+          />
+        );
+      case tabs[1]:
+        return (
+          <Specifics
+            title={tabs[1]}
+            points={jobData.job_highlights?.Responsibilities ?? ["N/A"]}
+          />
+        );
+      default:
+        break;
+    }
+  };
 
   const onRefresh = () => {};
 
@@ -79,10 +103,22 @@ const JobDetails = () => {
               jobTitle={jobData.job_title}
               companyName={jobData.employer_name}
               jobCountry={jobData.job_country}
+              jobCity={jobData.job_city}
+              jobState={jobData.job_state}
             />
+
+            <JobTabs
+              tabs={tabs}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+            />
+
+            {displayTabContent()}
           </View>
         )}
       </ScrollView>
+
+      <JobFooter url={jobData.job_google_link ?? 'https://www.google.com/about/careers/applications/jobs/results/'} />
     </SafeAreaView>
   );
 };

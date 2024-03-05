@@ -1,10 +1,16 @@
-import React from "react";
 import { View, Text, Image } from "react-native";
 import { images, icons } from "../../../constants";
 
 import styles from "./company.style";
 
-const Company = ({ companyLogo, jobTitle, companyName, jobCountry }) => {
+const Company = ({
+  companyLogo,
+  jobTitle,
+  companyName,
+  jobCountry,
+  jobCity,
+  jobState,
+}) => {
   const logo = companyLogo ? companyLogo : images.defaultLogo;
 
   return (
@@ -25,7 +31,9 @@ const Company = ({ companyLogo, jobTitle, companyName, jobCountry }) => {
             resizeMode="contain"
             style={styles.locationImage}
           />
-          <Text style={styles.locationName}>{jobCountry}</Text>
+          <Text style={styles.locationName}>
+            {jobCountry}, {jobCity}, {jobState}
+          </Text>
         </View>
       </View>
     </View>

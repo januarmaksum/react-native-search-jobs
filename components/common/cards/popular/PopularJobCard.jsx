@@ -1,4 +1,3 @@
-import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { images } from "../../../../constants";
 
@@ -10,7 +9,7 @@ const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
   return (
     <TouchableOpacity
       style={styles.container(selectedJob, item)}
-      onPress={() => handleCardPress(item)}
+      onPress={handleCardPress}
     >
       <TouchableOpacity style={styles.logoContainer(selectedJob, item)}>
         <Image
