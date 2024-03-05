@@ -16,6 +16,7 @@ import { COLORS, SIZES } from "../../../constants";
 
 const Popularjobs = () => {
   const router = useRouter();
+  const [selectedJob, setselectedJob] = useState(null);
 
   const params = {
     query: "React",
@@ -23,6 +24,11 @@ const Popularjobs = () => {
     num_pages: "1",
   };
   const { data, isLoading, error } = useFetch("search", params);
+
+  const handleCardPress = (item) => {
+    router.push(`/job-details/${item.job_id}`);
+    setselectedJob(item?.job_id);
+  };
 
   return (
     <View style={styles.container}>
@@ -47,9 +53,8 @@ const Popularjobs = () => {
             renderItem={({ item }) => (
               <PopularJobCard
                 item={item}
-                handleCardPress={() =>
-                  router.push(`job-details/${item.job_id}`)
-                }
+                selectedJob={selectedJob}
+                handleCardPress={() => handleCardPress(item)}
               />
             )}
           />

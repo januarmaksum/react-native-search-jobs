@@ -61,7 +61,11 @@ const JobDetails = () => {
     }
   };
 
-  const onRefresh = () => {};
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    refetch();
+    setRefreshing(false);
+  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -118,7 +122,12 @@ const JobDetails = () => {
         )}
       </ScrollView>
 
-      <JobFooter url={jobData.job_google_link ?? 'https://www.google.com/about/careers/applications/jobs/results/'} />
+      <JobFooter
+        url={
+          jobData.job_google_link ??
+          "https://www.google.com/about/careers/applications/jobs/results/"
+        }
+      />
     </SafeAreaView>
   );
 };
