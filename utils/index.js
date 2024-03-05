@@ -5,7 +5,6 @@ export const checkImageURL = (url) => {
       "^https?:\\/\\/.+\\.(png|jpg|jpeg|bmp|gif|webp)$",
       "i"
       );
-      console.log('pattern: ', pattern.test(url));
     return pattern.test(url);
   }
 };

@@ -1,12 +1,11 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
+import { images } from "../../../../constants";
 
 import styles from "./popularjobcard.style";
-const defaultLogo =
-  "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg";
 
 const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
-  const logo = item.employer_logo ? item.employer_logo : defaultLogo;
+  const logo = item.employer_logo ? item.employer_logo : images.defaultLogo;
 
   return (
     <TouchableOpacity

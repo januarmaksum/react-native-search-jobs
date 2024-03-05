@@ -24,6 +24,8 @@ const Popularjobs = () => {
   };
   const { data, isLoading, error } = useFetch("search", params);
 
+  console.log('render popular jobs');
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>

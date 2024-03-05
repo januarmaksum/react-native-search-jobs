@@ -1,11 +1,10 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
+import { images } from "../../../../constants";
 
 import styles from "./nearbyjobcard.style";
-const defaultLogo =
-  "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg";
 
 const NearbyJobCard = ({ job, handleNavigate }) => {
-  const logo = job.employer_logo ? job.employer_logo : defaultLogo;
+  const logo = job.employer_logo ? job.employer_logo : images.defaultLogo;
 
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
